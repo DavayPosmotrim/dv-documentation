@@ -24,7 +24,7 @@
 ## Genre
 ```json
 {
-  "genre": "Комедия"
+  "name": "Комедия"
 }
 ```
 <table>
@@ -32,7 +32,7 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>genre</td><td>Жанр фильма</td><td>String</td>
+<td>name</td><td>Жанр фильма</td><td>String</td>
 </tr>
 </table>
 
@@ -62,9 +62,9 @@
 ## ShortMovie
 ```json
 {
-  "id": "1q3ev4m",
+  "id": 999,
   "name": "Дюна",
-  "imgUrl": "http://www.img.ru/img.jpg"
+  "poster": "http://www.img.ru/img.jpg"
 }
 ```
 <table>
@@ -72,41 +72,41 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>id</td><td>Уникальный идентификатор фильма</td><td>String</td>
+<td>id</td><td>Уникальный идентификатор фильма</td><td>Integer</td>
 </tr>
 <tr>
 <td>name</td><td>Название фильма</td><td>String</td>
 </tr>
 <tr>
-<td>imgUrl</td><td>Ссылка на постер фильма</td><td>String</td>
+<td>poster</td><td>Ссылка на постер фильма</td><td>String</td>
 </tr>
 </table>
 
 ## Movie
 ```json
 {
-  "id": "1q3ev4m",
+  "id": 999,
   "name": "Дюна",
-  "imgUrl": "http://www.img.ru/img.jpg",
-  "anotherName": "Dune",
-  "ratingKinopoisk": 8.5,
+  "poster": "http://www.img.ru/img.jpg",
+  "alternative_name": "Dune",
+  "rating_kp": 8.5,
   "numOfMarksKinopoisk": 1000,
-  "ratingImdb": 6.1,
+  "rating_imdb": 6.1,
   "numOfMarksImdb": 500,
   "genres": [
     {
-      "genre": "Фантастика"
+      "name": "Фантастика"
     },
     {
-      "genre": "Боевик"
+      "name": "Боевик"
     }
   ],
-  "releaseYear": "2021",
+  "year": 2021,
   "countries": [
     "Канада",
     "Венгрия"
   ],
-  "duration": 155,
+  "movie_length": 155,
   "description": "Наследник знаменитого дома Атрейдесов...",
   "actors": [
     "Тимоти Шаламе",
@@ -122,25 +122,25 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>id</td><td>Уникальный идентификатор фильма</td><td>String</td>
+<td>id</td><td>Уникальный идентификатор фильма</td><td>Integer</td>
 </tr>
 <tr>
 <td>name</td><td>Название фильма</td><td>String</td>
 </tr>
 <tr>
-<td>imgUrl</td><td>Ссылка на постер фильма</td><td>String</td>
+<td>poster</td><td>Ссылка на постер фильма</td><td>String</td>
 </tr>
 <tr>
-<td>anotherName</td><td>Название фильма на другом языке</td><td>String</td>
+<td>alternative_name</td><td>Название фильма на другом языке</td><td>String? (Может быть null)</td>
 </tr>
 <tr>
-<td>ratingKinopoisk</td><td>Оценка на Кинопоиске</td><td>Float</td>
+<td>rating_kp</td><td>Оценка на Кинопоиске</td><td>Float</td>
 </tr>
 <tr>
 <td>numOfMarksKinopoisk</td><td>Количество оценок на Кинопоиске</td><td>Integer</td>
 </tr>
 <tr>
-<td>ratingImdb</td><td>Оценка на Imdb</td><td>Float</td>
+<td>rating_imdb</td><td>Оценка на Imdb</td><td>Float</td>
 </tr>
 <tr>
 <td>numOfMarksImdb</td><td>Количество оценок на Imdb</td><td>Integer</td>
@@ -149,13 +149,13 @@
 <td>genres</td><td>Массив жанров фильма</td><td>[Genre]</td>
 </tr>
 <tr>
-<td>releaseYear</td><td>Дата выхода</td><td>String</td>
+<td>year</td><td>Дата выхода</td><td>Integer</td>
 </tr>
 <tr>
 <td>countries</td><td>Массив стран фильма</td><td>[String]</td>
 </tr>
 <tr>
-<td>duration</td><td>Продолжительность фильма в минутах</td><td>Integer</td>
+<td>movie_length</td><td>Продолжительность фильма в минутах</td><td>Integer</td>
 </tr>
 <tr>
 <td>description</td><td>Описание фильма</td><td>String</td>
@@ -175,7 +175,7 @@
 {
   "genres": [
     {
-      "genre": "Комедия"
+      "name": "Комедия"
     }
   ],
   "collections": [
@@ -208,7 +208,7 @@
   "name": "userName",
   "genres": [
     {
-      "genre": "Комедия"
+      "name": "Комедия"
     }
   ],
   "collections": []
@@ -378,28 +378,28 @@
 {
   "movies": [
     {
-      "id": "1q3ev4m",
+      "id": 999,
       "name": "Дюна",
-      "imgUrl": "http://www.img.ru/img.jpg",
-      "anotherName": "Dune",
-      "ratingKinopoisk": 8.5,
+      "poster": "http://www.img.ru/img.jpg",
+      "alternative_name": "Dune",
+      "rating_kp": 8.5,
       "numOfMarksKinopoisk": 1000,
-      "ratingImdb": 6.1,
+      "rating_imdb": 6.1,
       "numOfMarksImdb": 500,
       "genres": [
         {
-          "genre": "Фантастика"
+          "name": "Фантастика"
         },
         {
-          "genre": "Боевик"
+          "name": "Боевик"
         }
       ],
-      "releaseYear": "2021",
+      "year": 2021,
       "countries": [
         "Канада",
         "Венгрия"
       ],
-      "duration": 155,
+      "movie_length": 155,
       "description": "Наследник знаменитого дома Атрейдесов...",
       "actors": [
         "Тимоти Шаламе",
@@ -495,28 +495,28 @@
 {
   "count": 5,
   "lastMatchedMovie": {
-    "id": "1q3ev4m",
+    "id": 999,
     "name": "Дюна",
-    "imgUrl": "http://www.img.ru/img.jpg",
-    "anotherName": "Dune",
-    "ratingKinopoisk": 8.5,
+    "poster": "http://www.img.ru/img.jpg",
+    "alternative_name": "Dune",
+    "rating_kp": 8.5,
     "numOfMarksKinopoisk": 1000,
-    "ratingImdb": 6.1,
+    "rating_imdb": 6.1,
     "numOfMarksImdb": 500,
     "genres": [
       {
-        "genre": "Фантастика"
+        "name": "Фантастика"
       },
       {
-        "genre": "Боевик"
+        "name": "Боевик"
       }
     ],
-    "releaseYear": "2021",
+    "year": 2021,
     "countries": [
       "Канада",
       "Венгрия"
     ],
-    "duration": 155,
+    "movie_length": 155,
     "description": "Наследник знаменитого дома Атрейдесов...",
     "actors": [
       "Тимоти Шаламе",
@@ -568,9 +568,9 @@
 {
   "shortMovies": [
     {
-      "id": "1u4h7c89j",
+      "id": 999,
       "name": "Дюна",
-      "imgUrl": "http://www.img.ru/img.jpg"
+      "poster": "http://www.img.ru/img.jpg"
     }
   ]
 }
@@ -599,28 +599,28 @@
 ```json
 {
   "movie": {
-    "id": "1q3ev4m",
+    "id": 999,
     "name": "Дюна",
-    "imgUrl": "http://www.img.ru/img.jpg",
-    "anotherName": "Dune",
-    "ratingKinopoisk": 8.5,
+    "poster": "http://www.img.ru/img.jpg",
+    "alternative_name": "Dune",
+    "rating_kp": 8.5,
     "numOfMarksKinopoisk": 1000,
-    "ratingImdb": 6.1,
+    "rating_imdb": 6.1,
     "numOfMarksImdb": 500,
     "genres": [
       {
-        "genre": "Фантастика"
+        "name": "Фантастика"
       },
       {
-        "genre": "Боевик"
+        "name": "Боевик"
       }
     ],
-    "releaseYear": "2021",
+    "year": 2021,
     "countries": [
       "Канада",
       "Венгрия"
     ],
-    "duration": 155,
+    "movie_length": 155,
     "description": "Наследник знаменитого дома Атрейдесов...",
     "actors": [
       "Тимоти Шаламе",
@@ -638,6 +638,73 @@
 </tr>
 <tr>
 <td>movie</td><td>Полная информация о фильме</td><td>Movie</td>
+</tr>
+</table>
+
+## Получение подробной информации о сессии
+## GET /api/sessions/[sessionCode]/
+Стркуткура ответа
+```json
+{
+  "id": "Q2Nurf9o",
+  "users": [
+    {
+      "userId": "string",
+      "name": "string"
+    }
+  ],
+  "movies": [
+    {
+      "id": 43395,
+      "name": "Название",
+      "description": "текст описания…",
+      "year": 1972,
+      "countries": [
+        "страна1",
+        "страна2"
+      ],
+      "poster": "http://www.img.ru/img.jpg",
+      "alternative_name": null,
+      "rating_kp": 8.548,
+      "rating_imdb": 8.1,
+      "movie_length": 160,
+      "genres": [
+        {
+          "name": "название жанра1"
+        },
+        {
+          "name": " название жанра2"
+        }
+      ],
+      "persons": []
+    }
+  ],
+  "matched_movies": [],
+  "date": "2024-06-22",
+  "status": "waiting"
+}
+```
+<table>
+<tr>
+<td>Поле</td><td>Описание</td><td>Тип данных</td>
+</tr>
+<tr>
+<td>id</td><td>Уникальный код сеанса по которому пользователи могут присоединиться (Состоит из 7 символов, 4 буквы и 3 цифры)</td><td>String</td>
+</tr>
+<tr>
+<td>users</td><td>Массив пользователей подключенных к сессии</td><td>[User]</td>
+</tr>
+<tr>
+<td>movies</td><td>Массив фильмов для выбора</td><td>[Movie]</td>
+</tr>
+<tr>
+<td>matched_movies</td><td>Массив совпавших фильмов</td><td>[Movie]</td>
+</tr>
+<tr>
+<td>date</td><td>Дата создания сесиии</td><td>String</td>
+</tr>
+<tr>
+<td>status</td><td>Текущий статус сессии</td><td>String</td>
 </tr>
 </table>
 
