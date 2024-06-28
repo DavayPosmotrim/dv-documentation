@@ -131,7 +131,7 @@
 <td>poster</td><td>Ссылка на постер фильма</td><td>String</td>
 </tr>
 <tr>
-<td>alternative_name</td><td>Название фильма на другом языке</td><td>String? (может быть null)</td>
+<td>alternative_name</td><td>Название фильма на другом языке</td><td>String? (Может быть null)</td>
 </tr>
 <tr>
 <td>rating_kp</td><td>Оценка на Кинопоиске</td><td>Float</td>
