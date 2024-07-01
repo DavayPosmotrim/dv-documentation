@@ -5,8 +5,8 @@
 
 ```json
 {
-  "userId": "device_id",
-  "name": "userName"
+  "name": "userName",
+  "device_id": "Qr2da&y38dba7"
 }
 ```
 <table>
@@ -14,14 +14,15 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>id</td><td>Серийный номер устройства</td><td>String</td>
+<td>name</td><td>Ник пользователя</td><td>String</td>
 </tr>
 <tr>
-<td>name</td><td>Ник пользователя</td><td>String</td>
+<td>device_id</td><td>Серийный номер устройства</td><td>String</td>
 </tr>
 </table>
 
 ## Genre
+
 ```json
 {
   "name": "Комедия"
@@ -39,9 +40,9 @@
 ## Collection
 ```json
 {
-  "id": "1q3ev4m",
+  "slug": "dune_2_arrakis",
   "name": "Новинки 2023 года",
-  "imgUrl": "http://www.img.ru/img.jpg"
+  "cover": "https://images.unsplash.com/photo-1719811838849-bf1cb4426c69?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 }
 ```
 <table>
@@ -49,17 +50,17 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>id</td><td>Уникальный идентификатор подборки</td><td>String</td>
+<td>slug</td><td>Slug идентификатор подборки</td><td>String</td>
 </tr>
 <tr>
 <td>name</td><td>Имя подборки</td><td>String</td>
 </tr>
 <tr>
-<td>imgUrl</td><td>Ссылка на постер подборки</td><td>String</td>
+<td>cover</td><td>Ссылка на постер подборки</td><td>String</td>
 </tr>
 </table>
 
-## ShortMovie
+## Movie
 ```json
 {
   "id": 999,
@@ -82,17 +83,24 @@
 </tr>
 </table>
 
-## Movie
+## MovieDetails
 ```json
 {
   "id": 999,
   "name": "Дюна",
+  "description": "Наследник знаменитого дома Атрейдесов...",
+  "year": 2021,
+  "countries": [
+    "Канада",
+    "Венгрия"
+  ],
   "poster": "http://www.img.ru/img.jpg",
   "alternative_name": "Dune",
   "rating_kp": 8.5,
-  "numOfMarksKinopoisk": 1000,
   "rating_imdb": 6.1,
-  "numOfMarksImdb": 500,
+  "votes_kp": 1000,
+  "votes_imdb": 500,
+  "movie_length": 155,
   "genres": [
     {
       "name": "Фантастика"
@@ -101,19 +109,12 @@
       "name": "Боевик"
     }
   ],
-  "year": 2021,
-  "countries": [
-    "Канада",
-    "Венгрия"
+  "directors": [
+    "Дени Вильнев"
   ],
-  "movie_length": 155,
-  "description": "Наследник знаменитого дома Атрейдесов...",
   "actors": [
     "Тимоти Шаламе",
     "Оскар Айзек"
-  ],
-  "directors": [
-    "Дени Вильнев"
   ]
 }
 ```
@@ -128,6 +129,15 @@
 <td>name</td><td>Название фильма</td><td>String</td>
 </tr>
 <tr>
+<td>description</td><td>Описание фильма</td><td>String</td>
+</tr>
+<tr>
+<td>year</td><td>Дата выхода</td><td>Integer</td>
+</tr>
+<tr>
+<td>countries</td><td>Массив стран фильма</td><td>[String]</td>
+</tr>
+<tr>
 <td>poster</td><td>Ссылка на постер фильма</td><td>String</td>
 </tr>
 <tr>
@@ -137,36 +147,80 @@
 <td>rating_kp</td><td>Оценка на Кинопоиске</td><td>Float</td>
 </tr>
 <tr>
-<td>numOfMarksKinopoisk</td><td>Количество оценок на Кинопоиске</td><td>Integer</td>
-</tr>
-<tr>
 <td>rating_imdb</td><td>Оценка на Imdb</td><td>Float</td>
 </tr>
 <tr>
-<td>numOfMarksImdb</td><td>Количество оценок на Imdb</td><td>Integer</td>
+<td>votes_kp</td><td>Количество оценок на Кинопоиске</td><td>Integer</td>
 </tr>
 <tr>
-<td>genres</td><td>Массив жанров фильма</td><td>[Genre]</td>
-</tr>
-<tr>
-<td>year</td><td>Дата выхода</td><td>Integer</td>
-</tr>
-<tr>
-<td>countries</td><td>Массив стран фильма</td><td>[String]</td>
+<td>votes_imdb</td><td>Количество оценок на Imdb</td><td>Integer</td>
 </tr>
 <tr>
 <td>movie_length</td><td>Продолжительность фильма в минутах</td><td>Integer</td>
 </tr>
 <tr>
-<td>description</td><td>Описание фильма</td><td>String</td>
-</tr>
-<tr>
-<td>actors</td><td>Массив актеров</td><td>[String]</td>
+<td>genres</td><td>Массив жанров фильма</td><td>[Genre]</td>
 </tr>
 <tr>
 <td>directors</td><td>Массив режиссеров</td><td>[String]</td>
 </tr>
+<tr>
+<td>actors</td><td>Массив актеров</td><td>[String]</td>
+</tr>
 </table>
+
+## Session
+
+```json
+{
+  "id": "Q2Nurf9o",
+  "users": [
+    {
+      "userId": "string",
+      "name": "string"
+    }
+  ],
+  "matched_movies": 5,
+  "date": "2024-06-22",
+  "status": "waiting",
+  "session_img": "poster url"
+}
+```
+<table>
+<tr>
+<td>Поле</td><td>Описание</td><td>Тип данных</td>
+</tr>
+<tr>
+<td>id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+</tr>
+<td>users</td><td>Массив пользователей сессии</td><td>[User]</td>
+<tr>
+<td>movies</td><td>Массив фильмов в сессии</td><td>MovieDetails</td>
+</tr>
+<tr>
+<td>matched_movies</td><td>Число совпавших фильмов</td><td>Integer</td>
+</tr>
+<tr>
+<td>date</td><td>Дата создания сессии</td><td>String</td>
+</tr>
+<tr>
+<td>status</td><td>Статус сессии</td><td>SessionStatus</td>
+</tr>
+<tr>
+<td>session_img</td><td>Ссылка на постер из любого фильма сессии (в приоритете постеры из фильмов по которым были совпадния с наибвысшей оценкой по кинопоиску, если совпадений не было, то берем постер фильма с наивысшей оценкой по кинопоиску)</td><td>String</td>
+</tr>
+</table>
+
+## Статусы сессии
+### Enum: SessionStatus
+
+`SessionStatus` представляет собой возможные статусы сессии. Эти статусы могут использоваться для отслеживания состояния сессии на различных этапах.
+
+#### Значения статусов:
+
+- `waiting` - Ожидание
+- `voting` - Голосование
+- `closed` - Закрыто
 
 ## Получение списка доступных жанров и подборок
 ## GET /categories
@@ -180,9 +234,9 @@
   ],
   "collections": [
     {
-      "id": "1q3ev4m",
+      "slug": "dune_2_arrakis",
       "name": "Новинки 2023 года",
-      "imgUrl": "http://www.img.ru/img.jpg"
+      "cover": "http://www.img.ru/img.jpg"
     }
   ]
 }
@@ -204,7 +258,7 @@
 Структура запроса RequestBody
 ```json
 {
-  "userId": "device_id",
+  "device_id": "Qr2da&y38dba7",
   "name": "userName",
   "genres": [
     {
@@ -219,7 +273,7 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>userId</td><td>Серийный номер устройства пользователя</td><td>String</td>
+<td>device_id</td><td>Серийный номер устройства пользователя</td><td>String</td>
 </tr>
 <tr>
 <td>name</td><td>Ник пользователя</td><td>String</td>
@@ -235,7 +289,7 @@
 Структура ответа
 ```json
 {
-  "sessionCode": "GIGd281"
+  "session_id": "GIGd281"
 }
 ```
 <table>
@@ -243,7 +297,7 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 </table>
 
@@ -252,10 +306,10 @@
 Структура запроса RequestBody
 ```json
 {
-  "sessionCode": "GIGd281",
-  "user": {
-    "userId": "device_id",
-    "name": "userName"
+  "session_id": "GIGd281",
+  "users": {
+    "name": "userName",
+    "device_id": "Qr2da&y38dba7"
   }
 }
 ```
@@ -264,10 +318,10 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 <tr>
-<td>user</td><td>Информация о подключаемом пользователе</td><td>User</td>
+<td>users</td><td>Информация о подключаемом пользователе</td><td>User</td>
 </tr>
 </table>
 
@@ -276,7 +330,7 @@
 Структура запроса RequestBody
 ```json
 {
-  "sessionCode": "GIGd281"
+  "session_id": "GIGd281"
 }
 ```
 <table>
@@ -284,7 +338,7 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 </table>
 Структура ответа
@@ -293,12 +347,13 @@
 {
   "users": [
     {
-      "userId": "device_id",
+      "device_id": "Qr2da&y38dba7",
       "name": "userName"
     }
   ],
-  "isSessionStart": false,
-  "isSessionEnd": false
+  "matched_movies": 5,
+  "date": "2024-09-23",
+  "status": "voting"
 }
 ```
 <table>
@@ -309,10 +364,10 @@
 <td>users</td><td>Массив пользователей, присоединенных к комнате ожидания</td><td>[User]</td>
 </tr>
 <tr>
-<td>isSessionStart</td><td>Флаг, который оповещает пользователей о том, что сеанс был начат создателем</td><td>Boolean</td>
+<td>date</td><td>Дата создания сессии</td><td>String</td>
 </tr>
 <tr>
-<td>isSessionEnd</td><td>Флаг, который оповещает пользователей о том, что сеанс был отменен создателем</td><td>Boolean</td>
+<td>status</td><td>Статус сессии</td><td>SessionStatus</td>
 </tr>
 </table>
 
@@ -322,7 +377,7 @@
 
 ```json
 {
-  "sessionCode": "GIGd281"
+  "session_id": "GIGd281"
 }
 ```
 <table>
@@ -330,7 +385,7 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 </table>
 
@@ -340,8 +395,8 @@
 
 ```json
 {
-  "sessionCode": "GIGd281",
-  "userId": "device_id"
+  "session_id": "GIGd281",
+  "device_id": "Qr2da&y38dba7"
 }
 ```
 <table>
@@ -349,19 +404,19 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 <tr>
-<td>userId</td><td>Серийный номер устройства пользователя. Если серийный номер равен серийному номеру создателя, оповещаем пользователей об отмене сессии</td><td>String</td>
+<td>device_id</td><td>Серийный номер устройства пользователя. Если серийный номер равен серийному номеру создателя, оповещаем пользователей об отмене сессии</td><td>String</td>
 </tr>
 </table>
 
-## Получение списка фильмов для выбора
-## GET /movies
+## Получение списка фильмов в сессии для выбора
+## GET /session_movies
 Структура запроса RequestBody
 ```json
 {
-  "sessionCode": "GIGd281"
+  "session_id": "GIGd281"
 }
 ```
 <table>
@@ -369,7 +424,7 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 </table>
 Структура ответа
@@ -380,12 +435,19 @@
     {
       "id": 999,
       "name": "Дюна",
+      "description": "Наследник знаменитого дома Атрейдесов...",
+      "year": 2021,
+      "countries": [
+        "Канада",
+        "Венгрия"
+      ],
       "poster": "http://www.img.ru/img.jpg",
       "alternative_name": "Dune",
       "rating_kp": 8.5,
-      "numOfMarksKinopoisk": 1000,
       "rating_imdb": 6.1,
-      "numOfMarksImdb": 500,
+      "votes_kp": 1000,
+      "votes_imdb": 500,
+      "movie_length": 155,
       "genres": [
         {
           "name": "Фантастика"
@@ -394,19 +456,12 @@
           "name": "Боевик"
         }
       ],
-      "year": 2021,
-      "countries": [
-        "Канада",
-        "Венгрия"
+      "directors": [
+        "Дени Вильнев"
       ],
-      "movie_length": 155,
-      "description": "Наследник знаменитого дома Атрейдесов...",
       "actors": [
         "Тимоти Шаламе",
         "Оскар Айзек"
-      ],
-      "directors": [
-        "Дени Вильнев"
       ]
     }
   ]
@@ -426,9 +481,9 @@
 Структура запроса RequestBody
 ```json
 {
-  "filmId": "1q3fj38d",
-  "userId": "device_id",
-  "sessionCode": "GIGd281"
+  "film_id": "1q3fj38d",
+  "device_id": "Qr2da&y38dba7",
+  "session_id": "GIGd281"
 }
 ```
 <table>
@@ -436,13 +491,13 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>filmId</td><td>Id понравившегося фильма</td><td>String</td>
+<td>film_id</td><td>Id понравившегося фильма</td><td>String</td>
 </tr>
 <tr>
-<td>userId</td><td>Серийный номер устройства пользователя, который пометил фильм как понравившийся</td><td>String</td>
+<td>device_id</td><td>Серийный номер устройства пользователя, который пометил фильм как понравившийся</td><td>String</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 </table>
 
@@ -451,9 +506,9 @@
 Структура запроса RequestBody
 ```json
 {
-  "filmId": "1q3fj38d",
-  "userId": "device_id",
-  "sessionCode": "GIGd281"
+  "film_id": "1q3fj38d",
+  "device_id": "Qr2da&y38dba7",
+  "session_id": "GIGd281"
 }
 ```
 <table>
@@ -461,13 +516,13 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>filmId</td><td>Id фильма</td><td>String</td>
+<td>film_id</td><td>Id фильма</td><td>String</td>
 </tr>
 <tr>
-<td>userId</td><td>Серийный номер устройства пользователя, который отменил свой выбор</td><td>String</td>
+<td>device_id</td><td>Серийный номер устройства пользователя, который отменил свой выбор</td><td>String</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 </table>
 
@@ -478,7 +533,7 @@
 Структура запроса RequestBody
 ```json
 {
-  "sessionCode": "GIGd281"
+  "session_id": "GIGd281"
 }
 ```
 <table>
@@ -486,7 +541,7 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 </table>
 Структура ответа
@@ -494,15 +549,23 @@
 ```json
 {
   "count": 5,
-  "lastMatchedMovie": {
+  "last_matched_movie":
+  {
     "id": 999,
     "name": "Дюна",
+    "description": "Наследник знаменитого дома Атрейдесов...",
+    "year": 2021,
+    "countries": [
+      "Канада",
+      "Венгрия"
+    ],
     "poster": "http://www.img.ru/img.jpg",
     "alternative_name": "Dune",
     "rating_kp": 8.5,
-    "numOfMarksKinopoisk": 1000,
     "rating_imdb": 6.1,
-    "numOfMarksImdb": 500,
+    "votes_kp": 1000,
+    "votes_imdb": 500,
+    "movie_length": 155,
     "genres": [
       {
         "name": "Фантастика"
@@ -511,22 +574,15 @@
         "name": "Боевик"
       }
     ],
-    "year": 2021,
-    "countries": [
-      "Канада",
-      "Венгрия"
+    "directors": [
+      "Дени Вильнев"
     ],
-    "movie_length": 155,
-    "description": "Наследник знаменитого дома Атрейдесов...",
     "actors": [
       "Тимоти Шаламе",
       "Оскар Айзек"
-    ],
-    "directors": [
-      "Дени Вильнев"
     ]
   },
-  "isRouletteStart": false
+  "is_roulette_start": false
 }
 ```
 <table>
@@ -537,21 +593,21 @@
 <td>count</td><td>Количество совпадений</td><td>Integer</td>
 </tr>
 <tr>
-<td>lastMatchedMovie</td><td>Последний совпавший фильм (может быть null, если совпадений ещё не было)</td><td>Movie</td>
+<td>last_matched_movie</td><td>Последний совпавший фильм (может быть null, если совпадений ещё не было)</td><td>Movie</td>
 </tr>
 <tr>
-<td>isRouletteStart</td><td>Признак начала сценария с рулеткой</td><td>Boolean</td>
+<td>is_roulette_start</td><td>Признак начала сценария с рулеткой</td><td>Boolean</td>
 </tr>
 </table>
 
-## Получение списка совпавших фильмов
+## Получение списка совпавших фильмов в сессии
 ## GET /listMatches
 1. Совпадением фильма считается, когда все участники сессии пометили фильм как понравившийся
 
 Структура запроса RequestBody
 ```json
 {
-  "sessionCode": "GIGd281"
+  "session_id": "GIGd281"
 }
 ```
 <table>
@@ -559,14 +615,14 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 </table>
 Структура ответа
 
 ```json
 {
-  "shortMovies": [
+  "movies": [
     {
       "id": 999,
       "name": "Дюна",
@@ -580,33 +636,41 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>shortMovies</td><td>Массив совпавших фильмов</td><td>[ShortMovie]</td>
+<td>movies</td><td>Массив совпавших фильмов</td><td>[Movie]</td>
 </tr>
 </table>
 
 ## Получение полной информации о фильме
-## GET /movie/[id]
+## GET /movieDetails/[id]
 <table>
 <tr>
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>id</td><td>Уникальный идентификатор фильма</td><td>String</td>
+<td>movie_id</td><td>Уникальный идентификатор фильма</td><td>Integer</td>
 </tr>
 </table>
 Структура ответа
 
 ```json
 {
-  "movie": {
+  "movie":
+  {
     "id": 999,
     "name": "Дюна",
+    "description": "Наследник знаменитого дома Атрейдесов...",
+    "year": 2021,
+    "countries": [
+      "Канада",
+      "Венгрия"
+    ],
     "poster": "http://www.img.ru/img.jpg",
     "alternative_name": "Dune",
     "rating_kp": 8.5,
-    "numOfMarksKinopoisk": 1000,
     "rating_imdb": 6.1,
-    "numOfMarksImdb": 500,
+    "votes_kp": 1000,
+    "votes_imdb": 500,
+    "movie_length": 155,
     "genres": [
       {
         "name": "Фантастика"
@@ -615,19 +679,12 @@
         "name": "Боевик"
       }
     ],
-    "year": 2021,
-    "countries": [
-      "Канада",
-      "Венгрия"
+    "directors": [
+      "Дени Вильнев"
     ],
-    "movie_length": 155,
-    "description": "Наследник знаменитого дома Атрейдесов...",
     "actors": [
       "Тимоти Шаламе",
       "Оскар Айзек"
-    ],
-    "directors": [
-      "Дени Вильнев"
     ]
   }
 }
@@ -637,51 +694,34 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>movie</td><td>Полная информация о фильме</td><td>Movie</td>
+<td>movie</td><td>Полная информация о фильме</td><td>MovieDetails</td>
 </tr>
 </table>
 
 ## Получение подробной информации о сессии
-## GET /api/sessions/[sessionCode]/
+## GET /api/session/[sessionCode]/
+Структура запроса RequestBody
+```json
+{
+  "session_id": "GIGd281"
+}
+```
 Структура ответа
 ```json
 {
-  "id": "Q2Nurf9o",
-  "users": [
-    {
-      "userId": "string",
-      "name": "string"
-    }
-  ],
-  "movies": [
-    {
-      "id": 43395,
-      "name": "Название",
-      "description": "текст описания…",
-      "year": 1972,
-      "countries": [
-        "страна1",
-        "страна2"
-      ],
-      "poster": "http://www.img.ru/img.jpg",
-      "alternative_name": null,
-      "rating_kp": 8.548,
-      "rating_imdb": 8.1,
-      "movie_length": 160,
-      "genres": [
-        {
-          "name": "название жанра1"
-        },
-        {
-          "name": " название жанра2"
-        }
-      ],
-      "persons": []
-    }
-  ],
-  "matched_movies": [],
-  "date": "2024-06-22",
-  "status": "waiting"
+  "session": {
+    "id": "Q2Nurf9o",
+    "users": [
+      {
+        "userId": "string",
+        "name": "string"
+      }
+    ],
+    "matched_movies": 5,
+    "date": "2024-06-22",
+    "status": "waiting",
+    "session_img": "poster url"
+  }
 }
 ```
 <table>
@@ -689,22 +729,10 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 <tr>
-<td>users</td><td>Массив пользователей, подключенных к сессии</td><td>[User]</td>
-</tr>
-<tr>
-<td>movies</td><td>Массив фильмов для выбора</td><td>[Movie]</td>
-</tr>
-<tr>
-<td>matched_movies</td><td>Массив совпавших фильмов</td><td>[Movie]</td>
-</tr>
-<tr>
-<td>date</td><td>Дата создания сессии</td><td>String</td>
-</tr>
-<tr>
-<td>status</td><td>Текущий статус сессии</td><td>String</td>
+<td>session</td><td>Данные сессии</td><td>Session</td>
 </tr>
 </table>
 
@@ -713,8 +741,8 @@
 Структура запроса RequestBody
 ```json
 {
-  "sessionCode": "GIGd281",
-  "userId": "device_id"
+  "session_id": "GIGd281",
+  "device_id": "Qr2da&y38dba7"
 }
 ```
 <table>
@@ -722,17 +750,17 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 <tr>
-<td>userId</td><td>Серийный номер устройства пользователя, который инициировал событие</td><td>String</td>
+<td>device_id</td><td>Серийный номер устройства пользователя, который инициировал событие</td><td>String</td>
 </tr>
 </table>
 Структура ответа
 
 ```json
 {
-  "randomMovieId": "1q3ev4m"
+  "random_movie_id": "1q3ev4m"
 }
 ```
 <table>
@@ -740,7 +768,7 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>randomMovieId</td><td>Id выбранного фильма для просмотра случайным образом</td><td>String</td>
+<td>random_movie_id</td><td>Id выбранного фильма для просмотра случайным образом</td><td>String</td>
 </tr>
 </table>
 
@@ -749,8 +777,8 @@
 Структура запроса RequestBody
 ```json
 {
-  "sessionCode": "GIGd281",
-  "userId": "device_id"
+  "session_id": "GIGd281",
+  "device_id": "Qr2da&y38dba7"
 }
 ```
 <table>
@@ -758,17 +786,17 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 <tr>
-<td>userId</td><td>Серийный номер устройства пользователя, который подключается к событию</td><td>String</td>
+<td>device_id</td><td>Серийный номер устройства пользователя, который подключается к событию</td><td>String</td>
 </tr>
 </table>
 Структура ответа
 
 ```json
 {
-  "randomMovieId": "1q3ev4m"
+  "random_movie_id": "1q3ev4m"
 }
 ```
 <table>
@@ -776,7 +804,7 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>randomMovieId</td><td>Id фильма для просмотра, выбранного случайным образом</td><td>String</td>
+<td>random_movie_id</td><td>Id фильма для просмотра, выбранного случайным образом</td><td>String</td>
 </tr>
 </table>
 
@@ -785,7 +813,7 @@
 Структура запроса RequestBody
 ```json
 {
-  "sessionCode": "GIGd281"
+  "session_id": "GIGd281"
 }
 ```
 <table>
@@ -793,7 +821,7 @@
 <td>Поле</td><td>Описание</td><td>Тип данных</td>
 </tr>
 <tr>
-<td>sessionCode</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
+<td>session_id</td><td>Уникальный код сеанса, по которому пользователи могут присоединиться (Состоит из 7 символов: 4 буквы и 3 цифры)</td><td>String</td>
 </tr>
 </table>
 Структура ответа
@@ -802,8 +830,8 @@
 {
   "users": [
     {
-      "userId": "device_id",
-      "name": "userName"
+      "name": "userName",
+      "device_id": "Qr2da&y38dba7"
     }
   ]
 }

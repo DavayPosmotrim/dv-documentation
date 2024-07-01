@@ -180,33 +180,7 @@
       "name": "string"
     }
   ],
-  "movies": [
-    {
-      "id": 43395,
-      "name": "Название",
-      "description": "текст описания…",
-      "year": 1972,
-      "countries": [
-        "страна1",
-        "страна2"
-      ],
-      "poster": "http://www.img.ru/img.jpg",
-      "alternative_name": null,
-      "rating_kp": 8.548,
-      "rating_imdb": 8.1,
-      "movie_length": 160,
-      "genres": [
-        {
-          "name": "название жанра1"
-        },
-        {
-          "name": " название жанра2"
-        }
-      ],
-      "persons": []
-    }
-  ],
-  "matched_movies": [],
+  "matched_movies": 5,
   "date": "2024-06-22",
   "status": "waiting",
   "session_img": "poster url" 
@@ -224,7 +198,7 @@
 <td>movies</td><td>Массив фильмов в сессии</td><td>MovieDetails</td>
 </tr>
 <tr>
-<td>matched_movies</td><td>Массив фильмов по которым были совпадения</td><td>MovieDetails</td>
+<td>matched_movies</td><td>Число совпавших фильмов</td><td>Integer</td>
 </tr>
 <tr>
 <td>date</td><td>Дата создания сессии</td><td>String</td>
@@ -377,16 +351,7 @@
       "name": "userName"
     }
   ],
-  "movies": [
-    123,
-    928,
-    731263
-  ],
-  "matched_movies": [
-    123,
-    928,
-    731263
-  ],
+  "matched_movies": 5,
   "date": "2024-09-23",
   "status": "voting"
 }
@@ -752,33 +717,7 @@
         "name": "string"
       }
     ],
-    "movies": [
-      {
-        "id": 43395,
-        "name": "Название",
-        "description": "текст описания…",
-        "year": 1972,
-        "countries": [
-          "страна1",
-          "страна2"
-        ],
-        "poster": "http://www.img.ru/img.jpg",
-        "alternative_name": null,
-        "rating_kp": 8.548,
-        "rating_imdb": 8.1,
-        "movie_length": 160,
-        "genres": [
-          {
-            "name": "название жанра1"
-          },
-          {
-            "name": " название жанра2"
-          }
-        ],
-        "persons": []
-      }
-    ],
-    "matched_movies": [],
+    "matched_movies": 5,
     "date": "2024-06-22",
     "status": "waiting",
     "session_img": "poster url"
