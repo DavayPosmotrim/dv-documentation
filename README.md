@@ -176,7 +176,7 @@
   "id": "Q2Nurf9o",
   "users": [
     {
-      "userId": "string",
+      "device_id": "string",
       "name": "string"
     }
   ],
